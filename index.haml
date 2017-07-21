@@ -1,0 +1,74 @@
+!!!5
+%html{class:"no-js", lang:"es"}
+	%head
+		%meta{charset:"utf-8"}
+		%title Los mejores viajes
+		%meta{name:"description", content:"Porque viajar nunca habia sido tan placentero, viaja comodo y seguro."}
+		%link{href:"https://fonts.googleapis.com/css?family=Fredoka+One", rel:"stylesheet"}
+		%link{rel:"stylesheet", href:"css/normalize.css"}
+		%link{rel:"stylesheet", href:"css/bootstrap.css"}
+		%link{rel:"stylesheet", href:"css/flexboxgrid.min.css"}
+		%link{rel:"stylesheet", href:"css/style.css"}
+		%meta{name:"viewport", content:"width=device-width, initial-scale=1"}
+		%script{src:"js/vendor/modernizr-2.8.3.min.js"}
+	%body
+		="<!--[if lt IE 9]>"
+		%p{class:"browserupgrade"}
+			Estas usando un Navegador
+			%strong desactualizado.
+			Por favor
+			%a{href:"http//browsehappy.com/"}
+				actualiza tu navegador
+				para una mejor experiencia
+		="<![endif]-->"
+		.video-container
+			%video{autoplay:true, loop:true, width:"1280", height:"720", poster:"/videos/Snapshots/Tulum.jpg"}
+				%source{typ:"video/mp4", src:"/videos/mp4/Tulum.mp4"}
+				%source{typ:"video/webm", src:"/videos/webm/Tulum.webm"}
+		.row.full-height.middle-xs.center-xs.relative.up#home
+			.col-xs-12
+				.box.white-text
+					%img{src:"/img/logo.svg", width:"200px"}
+					%h1.fredora-script.title.no-margin Disfrute cada momento... ¡Viaje y conozca.!
+					%p#is-open 
+						%i.glyphicon.glyphicon-time
+						Abierto ahora
+			%nav.fixed.top.right.white-text.navigation#navigation
+				-menu = ["Inicio", "Menu", "Galeria", "Contacto", "Como llegar"]
+				%ul.list-inline
+					-menu.each do |item|
+						%li
+							%a{href:"#"}= item
+			.absolute.black.large-padding.white-text.full-width#description
+				.row.middle-xs.center-xs
+					.col-xs-7.col-sm-6.white-text.medium
+						Porque los sueños se hacen realidad.
+					.col-sm-6.col-xs#sticky-navigation
+						.box
+							%nav.text-right.navigation
+								%ul.list-inline
+									-menu.each do |item|
+										%li
+											%a{href:"#"}= item
+	
+	.text-center.relative#menu
+		.absolute.white#menu-title
+			%h2.fredora-script.title Menu
+		-menu_photos = [{name: "Cosa 1", image: "cosa-1", pricing:"10.00"},{name: "Cosa 2", image: "cosa-2", pricing:"20.0"},{name: "Cosa 3", image: "cosa-3", pricing:"30.0"},{name: "cosa 4", image: "cosa-4", pricing:"40.0"},{name: "Cosa 5", image: "cosa-5", pricing:"50.0"},{name: "Cosa 6", image: "cosa-6", pricing:"160.0"},{name: "Cosa 7", image: "cosa-1", pricing:"107.0"},{name: "Cosa 8", image: "cosa-2", pricing:"108.0"}]
+
+		.row
+			-menu_photos.each do |photo|
+				.col-md-4.col-lg-3.col-sm-6.col-xs-12.food{style:"background-image:url(/img/food/#{photo[:image]}-thumb.jpg)"}
+					.screen
+						.row.middle-xs.full-height
+							.col-xs-12.white-text
+								%h3.di.fredora-script.subtitle= photo[:name]
+
+								%p.no-margin= photo[:pricing] + " MXN"
+
+
+
+	%script{src:"http://code.jquery.com/jquery-3.2.1.min.js", integrity:"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin:"anonymous"}
+	%script 
+		window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')
+	%script{src:"/js/main.js"}
