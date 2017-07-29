@@ -10,6 +10,8 @@
     <link href="css/flexboxgrid.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- *Comentario pasamos el tamaño de nuestro arreglo de galeria para obtenerlo en nuestro JS*/ -->
+    <meta content="7" data-name="image-counter">
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
   </head>
   <body>
@@ -37,26 +39,26 @@
           <h1 class="fredora-script title no-margin">Disfrute cada momento... ¡Viaje y conozca.!</h1>
           <p id="is-open">
             <i class="glyphicon glyphicon-time"></i>
-            Abierto ahora
+            <span class="text">Abierto ahora</span>
           </p>
         </div>
       </div>
       <nav class="fixed top right white-text navigation" id="navigation">
         <ul class="list-inline">
           <li>
-            <a href="#">Inicio</a>
+            <a class="menu-link" href="#home">Inicio</a>
           </li>
           <li>
-            <a href="#">Menu</a>
+            <a class="menu-link" href="#menu">Menú</a>
           </li>
           <li>
-            <a href="#">Galeria</a>
+            <a class="menu-link" href="#gallery">Galeria</a>
           </li>
           <li>
-            <a href="#">Contacto</a>
+            <a class="menu-link" href="#contacto">Contacto</a>
           </li>
           <li>
-            <a href="#">Como llegar</a>
+            <a class="menu-link" href="#location">¿Como llegar?</a>
           </li>
         </ul>
       </nav>
@@ -67,22 +69,23 @@
           </div>
           <div class="col-sm-6 col-xs" id="sticky-navigation">
             <div class="box">
-              <nav class="text-right navigation">
+              <nav class="text-right navigation" id="responsive-nav">
+                <i class="glyphicon glyphicon-list white-texte subtitle glyphicon-remove" id="menu-opener"></i>
                 <ul class="list-inline">
                   <li>
-                    <a href="#">Inicio</a>
+                    <a class="menu-link" href="#home">Inicio</a>
                   </li>
                   <li>
-                    <a href="#">Menu</a>
+                    <a class="menu-link" href="#menu">Menú</a>
                   </li>
                   <li>
-                    <a href="#">Galeria</a>
+                    <a class="menu-link" href="#gallery">Galeria</a>
                   </li>
                   <li>
-                    <a href="#">Contacto</a>
+                    <a class="menu-link" href="#contacto">Contacto</a>
                   </li>
                   <li>
-                    <a href="#">Como llegar</a>
+                    <a class="menu-link" href="#location">¿Como llegar?</a>
                   </li>
                 </ul>
               </nav>
@@ -91,97 +94,163 @@
         </div>
       </div>
     </div>
+    <div class="text-center relative" id="menu">
+      <div class="absolute white" id="menu-title">
+        <h2 class="fredora-script title">Menu</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-1-thumb.jpg)">
+          <div class="screen">
+            <div class="row middle-xs full-height">
+              <div class="col-xs-12 white-text">
+                <h3 class="di fredora-script subtitle">Cosa 1</h3>
+                <p class="no-margin">10.00 MXN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-2-thumb.jpg)">
+          <div class="screen">
+            <div class="row middle-xs full-height">
+              <div class="col-xs-12 white-text">
+                <h3 class="di fredora-script subtitle">Cosa 2</h3>
+                <p class="no-margin">20.0 MXN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-3-thumb.jpg)">
+          <div class="screen">
+            <div class="row middle-xs full-height">
+              <div class="col-xs-12 white-text">
+                <h3 class="di fredora-script subtitle">Cosa 3</h3>
+                <p class="no-margin">30.0 MXN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-4-thumb.jpg)">
+          <div class="screen">
+            <div class="row middle-xs full-height">
+              <div class="col-xs-12 white-text">
+                <h3 class="di fredora-script subtitle">cosa 4</h3>
+                <p class="no-margin">40.0 MXN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-5-thumb.jpg)">
+          <div class="screen">
+            <div class="row middle-xs full-height">
+              <div class="col-xs-12 white-text">
+                <h3 class="di fredora-script subtitle">Cosa 5</h3>
+                <p class="no-margin">50.0 MXN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-6-thumb.jpg)">
+          <div class="screen">
+            <div class="row middle-xs full-height">
+              <div class="col-xs-12 white-text">
+                <h3 class="di fredora-script subtitle">Cosa 6</h3>
+                <p class="no-margin">160.0 MXN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-1-thumb.jpg)">
+          <div class="screen">
+            <div class="row middle-xs full-height">
+              <div class="col-xs-12 white-text">
+                <h3 class="di fredora-script subtitle">Cosa 7</h3>
+                <p class="no-margin">107.0 MXN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-2-thumb.jpg)">
+          <div class="screen">
+            <div class="row middle-xs full-height">
+              <div class="col-xs-12 white-text">
+                <h3 class="di fredora-script subtitle">Cosa 8</h3>
+                <p class="no-margin">108.0 MXN</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="gallery">
+      <div class="inner">
+        <div class="image" style="background-image:url(/img/food/cosa-1.jpg)"></div>
+        <div class="image" style="background-image:url(/img/food/cosa-2.jpg)"></div>
+        <div class="image" style="background-image:url(/img/food/cosa-3.jpg)"></div>
+        <div class="image" style="background-image:url(/img/food/cosa-4.jpg)"></div>
+        <div class="image" style="background-image:url(/img/food/cosa-5.jpg)"></div>
+        <div class="image" style="background-image:url(/img/food/cosa-6.jpg)"></div>
+        <div class="image" style="background-image:url(/img/food/cosa-1.jpg)"></div>
+        <div class="image" style="background-image:url(/img/food/cosa-2.jpg)"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card white black-text text-center relative">
+        <h3 class="medium slim">
+          En
+          <strong class="fredora-script">Viajes lo que sea</strong>
+          Viaja con lo mejor y todo eso
+          <strong class="fredora-script">bonito.</strong>
+        </h3>
+        <p class="top-space"></p>
+        La vida es un viaje interminable de todos nuestros actos buenos o malos, la cuestión es encontrarle sentido a lo que realmente queremos y luchar por ello sin apartarnos de nuestros valores y raices.
+        <strong class="fredora-script medium">- Bviajes Goznale.</strong>
+        <div class="large-padding medium black white-text text-center">
+          Tambien puedes acceder a este sitio sin acceso a internet
+        </div>
+      </div>
+    </div>
+    <div class="black white-text full-height" id="contacto">
+      <div class="row middle-xs full-height">
+        <div class="col-xs-12">
+          <div class="box">
+            <p class="text-center medium" id="info">Presiona enter para llenar los campos</p>
+            <form action="https://formspree.io/chuy_2808@hotmail.com" class="step-form" id="contacto-form" method="POST">
+              <div class="row center-xs">
+                <div class="col-xs-12 col-sm-4 col-md-2 first-sm">
+                  <div class="box">
+                    <div class="path-step active"></div>
+                    <div class="path-step"></div>
+                    <div class="path-step"></div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 first-xs">
+                  <div class="box">
+                    <fieldset class="step active">
+                      <input class="input" name="email" placeholder="Email" required type="email">
+                    </fieldset>
+                    <fieldset class="step">
+                      <input class="input" name="name" placeholder="Nombre" required type="text">
+                    </fieldset>
+                    <fieldset class="step">
+                      <textarea class="input" name="body" placeholder="Escribe aqui tu mensaje..." required></textarea>
+                    </fieldset>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="location">
+      <div id="map"></div>
+      <div class="black large-padding white-text text-center medium" id="message"></div>
+    </div>
   </body>
-  <div class="text-center relative" id="menu">
-    <div class="absolute white" id="menu-title">
-      <h2 class="fredora-script title">Menu</h2>
-    </div>
-    <div class="row">
-      <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-1-thumb.jpg)">
-        <div class="screen">
-          <div class="row middle-xs full-height">
-            <div class="col-xs-12 white-text">
-              <h3 class="di fredora-script subtitle">Cosa 1</h3>
-              <p class="no-margin">10.00 MXN</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-2-thumb.jpg)">
-        <div class="screen">
-          <div class="row middle-xs full-height">
-            <div class="col-xs-12 white-text">
-              <h3 class="di fredora-script subtitle">Cosa 2</h3>
-              <p class="no-margin">20.0 MXN</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-3-thumb.jpg)">
-        <div class="screen">
-          <div class="row middle-xs full-height">
-            <div class="col-xs-12 white-text">
-              <h3 class="di fredora-script subtitle">Cosa 3</h3>
-              <p class="no-margin">30.0 MXN</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-4-thumb.jpg)">
-        <div class="screen">
-          <div class="row middle-xs full-height">
-            <div class="col-xs-12 white-text">
-              <h3 class="di fredora-script subtitle">cosa 4</h3>
-              <p class="no-margin">40.0 MXN</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-5-thumb.jpg)">
-        <div class="screen">
-          <div class="row middle-xs full-height">
-            <div class="col-xs-12 white-text">
-              <h3 class="di fredora-script subtitle">Cosa 5</h3>
-              <p class="no-margin">50.0 MXN</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-6-thumb.jpg)">
-        <div class="screen">
-          <div class="row middle-xs full-height">
-            <div class="col-xs-12 white-text">
-              <h3 class="di fredora-script subtitle">Cosa 6</h3>
-              <p class="no-margin">160.0 MXN</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-1-thumb.jpg)">
-        <div class="screen">
-          <div class="row middle-xs full-height">
-            <div class="col-xs-12 white-text">
-              <h3 class="di fredora-script subtitle">Cosa 7</h3>
-              <p class="no-margin">107.0 MXN</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-lg-3 col-sm-6 col-xs-12 food" style="background-image:url(/img/food/cosa-2-thumb.jpg)">
-        <div class="screen">
-          <div class="row middle-xs full-height">
-            <div class="col-xs-12 white-text">
-              <h3 class="di fredora-script subtitle">Cosa 8</h3>
-              <p class="no-margin">108.0 MXN</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <script crossorigin="anonymous" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script>
     window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')
   </script>
-  <script src="/js/main.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm-wrsK_b6GyIist47PBtMNDDKijkaScs"></script>
+  <script src="/dist/app.js"></script>
 </html>

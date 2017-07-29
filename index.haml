@@ -1,3 +1,4 @@
+-gallery_image = ["cosa-1.jpg","cosa-2.jpg","cosa-3.jpg","cosa-4.jpg","cosa-5.jpg","cosa-6.jpg","cosa-1.jpg","cosa-2.jpg",]
 !!!5
 %html{class:"no-js", lang:"es"}
 	%head
@@ -10,6 +11,8 @@
 		%link{rel:"stylesheet", href:"css/flexboxgrid.min.css"}
 		%link{rel:"stylesheet", href:"css/style.css"}
 		%meta{name:"viewport", content:"width=device-width, initial-scale=1"}
+		/*Comentario pasamos el tamaño de nuestro arreglo de galeria para obtenerlo en nuestro JS*/
+		%meta{:"data-name" => "image-counter", content:"#{gallery_image.size - 1}"}
 		%script{src:"js/vendor/modernizr-2.8.3.min.js"}
 	%body
 		="<!--[if lt IE 9]>"
@@ -32,43 +35,88 @@
 					%h1.fredora-script.title.no-margin Disfrute cada momento... ¡Viaje y conozca.!
 					%p#is-open 
 						%i.glyphicon.glyphicon-time
-						Abierto ahora
+						%span.text Abierto ahora
 			%nav.fixed.top.right.white-text.navigation#navigation
-				-menu = ["Inicio", "Menu", "Galeria", "Contacto", "Como llegar"]
+				-menu = [{title:"Inicio", link:"#home"}, {title:"Menú", link:"#menu"}, {title:"Galeria", link:"#gallery"}, {title:"Contacto", link:"#contacto"}, {title:"¿Como llegar?", link:"#location"}]
 				%ul.list-inline
 					-menu.each do |item|
 						%li
-							%a{href:"#"}= item
+							%a.menu-link{href:item[:link]}= item[:title]
 			.absolute.black.large-padding.white-text.full-width#description
 				.row.middle-xs.center-xs
 					.col-xs-7.col-sm-6.white-text.medium
 						Porque los sueños se hacen realidad.
 					.col-sm-6.col-xs#sticky-navigation
 						.box
-							%nav.text-right.navigation
+							%nav.text-right.navigation#responsive-nav
+								%i.glyphicon.glyphicon-list.white-texte.subtitle.glyphicon-remove#menu-opener
 								%ul.list-inline
 									-menu.each do |item|
 										%li
-											%a{href:"#"}= item
+											%a.menu-link{href:item[:link]}= item[:title]
+		
+		.text-center.relative#menu
+			.absolute.white#menu-title
+				%h2.fredora-script.title Menu
+			-menu_photos = [{name: "Cosa 1", image: "cosa-1", pricing:"10.00"},{name: "Cosa 2", image: "cosa-2", pricing:"20.0"},{name: "Cosa 3", image: "cosa-3", pricing:"30.0"},{name: "cosa 4", image: "cosa-4", pricing:"40.0"},{name: "Cosa 5", image: "cosa-5", pricing:"50.0"},{name: "Cosa 6", image: "cosa-6", pricing:"160.0"},{name: "Cosa 7", image: "cosa-1", pricing:"107.0"},{name: "Cosa 8", image: "cosa-2", pricing:"108.0"}]
+
+			.row
+				-menu_photos.each do |photo|
+					.col-md-4.col-lg-3.col-sm-6.col-xs-12.food{style:"background-image:url(/img/food/#{photo[:image]}-thumb.jpg)"}
+						.screen
+							.row.middle-xs.full-height
+								.col-xs-12.white-text
+									%h3.di.fredora-script.subtitle= photo[:name]
+
+									%p.no-margin= photo[:pricing] + " MXN"
+
+		#gallery
+			.inner
+				-gallery_image.each do |image|
+					.image{style:"background-image:url(/img/food/#{image})"}
 	
-	.text-center.relative#menu
-		.absolute.white#menu-title
-			%h2.fredora-script.title Menu
-		-menu_photos = [{name: "Cosa 1", image: "cosa-1", pricing:"10.00"},{name: "Cosa 2", image: "cosa-2", pricing:"20.0"},{name: "Cosa 3", image: "cosa-3", pricing:"30.0"},{name: "cosa 4", image: "cosa-4", pricing:"40.0"},{name: "Cosa 5", image: "cosa-5", pricing:"50.0"},{name: "Cosa 6", image: "cosa-6", pricing:"160.0"},{name: "Cosa 7", image: "cosa-1", pricing:"107.0"},{name: "Cosa 8", image: "cosa-2", pricing:"108.0"}]
+		.container
+			.card.white.black-text.text-center.relative
+				%h3.medium.slim
+					En
+					%strong.fredora-script Viajes lo que sea
+					Viaja con lo mejor y todo eso
+					%strong.fredora-script bonito.
+				%p.top-space
+				La vida es un viaje interminable de todos nuestros actos buenos o malos, la cuestión es encontrarle sentido a lo que realmente queremos y luchar por ello sin apartarnos de nuestros valores y raices.
+				%strong.fredora-script.medium - Bviajes Goznale.
+				.large-padding.medium.black.white-text.text-center
+					Tambien puedes acceder a este sitio sin acceso a internet 
 
-		.row
-			-menu_photos.each do |photo|
-				.col-md-4.col-lg-3.col-sm-6.col-xs-12.food{style:"background-image:url(/img/food/#{photo[:image]}-thumb.jpg)"}
-					.screen
-						.row.middle-xs.full-height
-							.col-xs-12.white-text
-								%h3.di.fredora-script.subtitle= photo[:name]
-
-								%p.no-margin= photo[:pricing] + " MXN"
-
-
+		.black.white-text.full-height#contacto
+			.row.middle-xs.full-height
+				.col-xs-12
+					.box
+						%p.text-center.medium#info Presiona enter para llenar los campos
+						%form{action:"https://formspree.io/chuy_2808@hotmail.com", method:"POST", id:"contacto-form", class:"step-form"}
+							.row.center-xs
+								.col-xs-12.col-sm-4.col-md-2.first-sm
+									.box
+										-3.times do |i|
+											-if i == 0
+												.path-step.active
+											-else
+												.path-step
+								.col-xs-12.col-sm-4.first-xs
+									.box
+										%fieldset.step.active
+											%input{type:"email", name:"email", placeholder:"Email", class:"input", required:true}
+										%fieldset.step
+											%input{type:"text", name:"name", placeholder:"Nombre", class:"input", required:true}
+										%fieldset.step
+											%textarea{name:"body", placeholder:"Escribe aqui tu mensaje...", class:"input", required:true}
+		#location
+			#map
+			#message.black.large-padding.white-text.text-center.medium
+				
 
 	%script{src:"http://code.jquery.com/jquery-3.2.1.min.js", integrity:"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin:"anonymous"}
 	%script 
 		window.jQuery || document.write('<script src="/js/vendor/jquery-1.12.0.min.js"><\/script>')
-	%script{src:"/js/main.js"}
+	%script{src:"https://maps.googleapis.com/maps/api/js?key=AIzaSyAm-wrsK_b6GyIist47PBtMNDDKijkaScs"}
+	%script{src:"/dist/app.js"}
